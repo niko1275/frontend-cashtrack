@@ -1,14 +1,22 @@
 import { verifySesion } from "@/src/auth/dal";
 import { cookies } from "next/headers";
+import { NextRequest } from "next/server";
+
+type RouteParams = {
+  params: {
+    budgetid: string;
+    expenseId: string;
+  }
+}
 
 export async function GET(
-  request: Request,
-  { params }: {  params: { budgetid: string; expenseId: string } }
+  request: NextRequest,
+  { params }: RouteParams
 ) {
   await verifySesion();
 
-  const cookieStore = cookies(); // NO necesitas 'await'
-  const token = (await cookieStore).get('CASHTRACKR_TOKEN')?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get('CASHTRACKR_TOKEN')?.value;
 
   const url = `${process.env.API_URL}/presupuesto/${params.budgetid}/Gastos/${params.expenseId}`;
 
