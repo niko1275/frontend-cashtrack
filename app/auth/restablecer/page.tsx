@@ -1,6 +1,4 @@
-
 import type { Metadata } from "next"
-import RegisterForm from "@/components/auth/RegisterForm"
 import ForgotPasswordForm from "@/components/auth/RestablecerPasswordForm"
 import Link from "next/link"
 
@@ -27,5 +25,4 @@ export default function RegisterPage (){
             </nav>
         </>
     )
-
 }

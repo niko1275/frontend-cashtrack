@@ -16,6 +16,8 @@ export default function ModalContainer() {
   const show = showModal ? true : false
   const addGastos = searchParams.get('addexpense')
   const editGastos = searchParams.get('editexpense')
+  const deleteGastos = searchParams.get('deleteExpenseId')
+  
   const idgasto = searchParams.get('IdGasto')
 
   const closeModal = () => {
@@ -32,6 +34,9 @@ export default function ModalContainer() {
     }
     if (editGastos ) {
       return <EditGastosForm  />
+    }
+    if(deleteGastos){
+      return <DeleteGastosForm closeModal={closeModal}/>
     }
     return null
   }

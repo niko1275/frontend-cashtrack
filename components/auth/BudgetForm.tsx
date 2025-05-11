@@ -48,13 +48,13 @@ export default function CreateBudgetForm({ initialData }: BudgetFormProps) {
         {state.errors.length > 0 && (
             <div className="space-y-2">
                 {state.errors.map((error, index) => (
-                    <ErrorMessage key={index} children={error}/>
+                    <ErrorMessage key={index}>{error}</ErrorMessage>
                 ))}
             </div>
         )}
 
         {state.success && (
-            <SuccessMessage children={state.success}/>
+            <SuccessMessage>{state.success}</SuccessMessage>
         )}
           
       <div className="space-y-3">

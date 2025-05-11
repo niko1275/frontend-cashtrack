@@ -44,12 +44,19 @@ export default function ExpenseMenu({ IdPresupuesto, IdGasto }: ExpenseMenuProps
                                 Editar Gasto
                             </button>
                         </MenuItem>
-
+                        
                         <MenuItem>
                             <button
                                 type='button'
                                 className='block px-3 py-1 text-sm leading-6 text-red-500'
-                                onClick={() => {}}
+                                onClick={() => {
+
+                                    const params = new URLSearchParams()
+                                    params.set('deleteExpenseId', 'true')
+                                    params.set('showModal', 'true')
+                                    params.set('IdGasto', IdGasto.toString())
+                                    router.push(`?${params.toString()}`)
+                                }}
                             >
                                 Eliminar Gasto
                             </button>

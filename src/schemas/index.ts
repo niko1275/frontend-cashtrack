@@ -1,5 +1,4 @@
 import {z} from 'zod'
-import { UserSchema } from './auth'
 
 export const registerSchema = z.object({
     email: z.string().min(1,{message:"El email es obligatorio"}).email({message:'Email no valido'}),

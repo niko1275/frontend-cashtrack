@@ -27,7 +27,6 @@ export const ConfirmarCuenta = () => {
      const router = useRouter()
      
      useEffect(()=>{
-
       if(state.errors.length>0){
         state.errors.forEach((error) => (
           toast.warning(error)
@@ -41,7 +40,7 @@ export const ConfirmarCuenta = () => {
           }
         })
       }
-     },[state])
+     },[state, router])
 
   return (
     <form action={formAction} className='flex flex-col items-center'>

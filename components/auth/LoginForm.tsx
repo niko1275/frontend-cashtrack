@@ -3,10 +3,9 @@
 import { login } from "@/actions/login-acount"
 import { useFormState } from "react-dom"
 import ErrorMessage from "../ui/ErrorMessage";
-import SuccessMessage from "../ui/SuccessMessage";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 import { useRouter } from 'next/navigation'
+import { useEffect } from "react";
+
 export default function LoginForm() {
     const router = useRouter()
     const [state,dispatch] = useFormState(login,{
@@ -18,19 +17,19 @@ export default function LoginForm() {
         e.preventDefault();
         const formData = new FormData(e.target as HTMLFormElement);
         dispatch(formData);
-      };
+    };
 
-      useEffect(()=>{
+    useEffect(()=>{
         if(state.success){
-          router.push('/admin')
+            router.push('/admin')
         }
-       },[state])
+    },[state, router])
+
     return (
         <>
-
-            {
-                state.errors.map(e=><ErrorMessage children={e}/>)
-            }
+            {state.errors.map((error, index) => (
+                <ErrorMessage key={index}>{error}</ErrorMessage>
+            ))}
         
             <form
                 className="mt-14 space-y-5"
@@ -68,7 +67,7 @@ export default function LoginForm() {
                 <input
                     type="submit"
                     value='Iniciar Sesión'
-                    className="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer"
+                    className="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-black text-xl cursor-pointer"
                 />
             </form>
         </>
