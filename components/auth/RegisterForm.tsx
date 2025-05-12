@@ -35,8 +35,8 @@ export default function RegisterForm() {
         onSubmit={handleSubmit}
     >
 
-        {state.errors.map(e=><ErrorMessage children={e}/>)}
-        {state.success && <SuccessMessage children={state.success}/>}
+        {state.errors.map((e,index)=><ErrorMessage key={index } >{e}</ErrorMessage>)}
+        {state.success && <SuccessMessage >{state.success}</SuccessMessage>}
         <div className="flex flex-col gap-2">
             <label
                 className="font-bold text-2xl"

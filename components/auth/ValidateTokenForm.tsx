@@ -1,18 +1,17 @@
 "use client"
 import { ValidateToken } from "@/actions/validate-token";
 import { PinInput, PinInputField } from "@chakra-ui/pin-input";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 interface ValidateTokenFormProps {
     onValidToken: () => void;
-    tokenValid:String,
+    tokenValid: string;
     setTokenValid: (value: string) => void;
 }
 
-export default function ValidateTokenForm({ onValidToken,setTokenValid}: ValidateTokenFormProps) {
-    const [token,setToken] = useState("")
-    const [isComplete,setIsComplete] = useState(false)
+export default function ValidateTokenForm({ onValidToken, setTokenValid}: ValidateTokenFormProps) {
+    const [token, setToken] = useState("")
 
     const handleChange = async (token: string) => {
         console.log("Token actual:", token, "Longitud:", token.length)
@@ -28,12 +27,8 @@ export default function ValidateTokenForm({ onValidToken,setTokenValid}: Validat
                 onValidToken();
                 setTokenValid(token);
             }
-        } else {
-            setIsComplete(false)
         }
     }
-
-   
 
     return (
         <div className="flex flex-col items-center">
@@ -41,9 +36,7 @@ export default function ValidateTokenForm({ onValidToken,setTokenValid}: Validat
                 <PinInput
                     value={token}
                     onChange={handleChange}
-                   
                     type="number"
-                    
                 >
                     <PinInputField className="h-10 w-10 text-center border border-gray-300 shadow rounded-lg placeholder-white" />
                     <PinInputField className="h-10 w-10 text-center border border-gray-300 shadow rounded-lg placeholder-white" />
@@ -53,7 +46,6 @@ export default function ValidateTokenForm({ onValidToken,setTokenValid}: Validat
                     <PinInputField className="h-10 w-10 text-center border border-gray-300 shadow rounded-lg placeholder-white" />
                 </PinInput>
             </div>
-         
         </div>
     )
 }

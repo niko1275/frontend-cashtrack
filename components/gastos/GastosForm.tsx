@@ -5,7 +5,7 @@ import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useParams, useSearchParams } from "next/navigation";
-import ErrorMessage from "../ui/ErrorMessage";
+
 import { actualizarGasto } from "@/actions/gastos/actualizar-gasto-action";
 
 interface Expense {

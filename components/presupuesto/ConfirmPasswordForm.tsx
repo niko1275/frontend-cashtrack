@@ -5,8 +5,7 @@ import { DialogTitle } from "@headlessui/react"
 import { useFormState } from "react-dom"
 import { toast } from "react-toastify"
 import checkPassword from "@/actions/presupuesto/check-password-action"
-import { useEffect } from "react"
-import ErrorMessage from "../ui/ErrorMessage"
+import { useEffect, useCallback } from "react"
 
 export default function ConfirmPasswordForm({ budgetId }: {budgetId:string}) {
   const pathname = usePathname()
@@ -17,6 +16,12 @@ export default function ConfirmPasswordForm({ budgetId }: {budgetId:string}) {
     errors: [],
     success: ''
   })
+
+  const closeModal = useCallback(() => {
+    const hideModal = new URLSearchParams(searchParams.toString())
+    hideModal.delete('deleteBudgetId')
+    router.replace(`${pathname}?${hideModal}`)
+  }, [pathname, router, searchParams])
 
   useEffect(() => {
     if (state.success) {
@@ -29,13 +34,7 @@ export default function ConfirmPasswordForm({ budgetId }: {budgetId:string}) {
     if (state.errors.length > 0) {
       state.errors.forEach(error => toast.error(error))
     }
-  }, [state])
-
-  const closeModal = () => {
-    const hideModal = new URLSearchParams(searchParams.toString())
-    hideModal.delete('deleteBudgetId')
-    router.replace(`${pathname}?${hideModal}`)
-  }
+  }, [state, closeModal])
 
   return (
     <>

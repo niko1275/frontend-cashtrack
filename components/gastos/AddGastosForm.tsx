@@ -1,9 +1,9 @@
 "use client"
 import { DialogTitle } from "@headlessui/react";
 import ExpenseForm from "./GastosForm";
-import { useParams } from "next/navigation";
+
 export default function AddGastosForm(){
-    const {id} = useParams()
+ 
     
     return (
         <>

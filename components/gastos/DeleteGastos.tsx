@@ -1,14 +1,9 @@
 "use client"
-import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import { DialogTitle } from "@headlessui/react";
 
 
 export default function DeleteExpenseForm() {
-  const { id: budgetId } = useParams()
-  const searchParams = useSearchParams()
-  const expenseId = searchParams.get('deleteExpenseId')
-  const router = useRouter()
-  const pathname = usePathname()
 
   const closeModal = () => {
     console.log("Si entra")

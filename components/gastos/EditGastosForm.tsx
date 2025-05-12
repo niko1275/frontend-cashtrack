@@ -1,8 +1,7 @@
 "use client"
 import { DialogTitle } from "@headlessui/react";
 import ExpenseForm from "./GastosForm";
-import { obtenergasto } from "@/actions/gastos/obtener-gasto-action";
-import { useParams, useSearchParams } from "next/navigation";
+
 
 export default function EditGastosForm() {
     

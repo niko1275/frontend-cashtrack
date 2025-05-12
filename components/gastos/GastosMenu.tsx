@@ -5,11 +5,10 @@ import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/r
 import { useRouter } from 'next/navigation'
 
 interface ExpenseMenuProps {
-    IdPresupuesto: number;
     IdGasto: number;
 }
 
-export default function ExpenseMenu({ IdPresupuesto, IdGasto }: ExpenseMenuProps) {
+export default function ExpenseMenu({ IdGasto }: ExpenseMenuProps) {
     const router = useRouter()
   
     return (
@@ -50,7 +49,6 @@ export default function ExpenseMenu({ IdPresupuesto, IdGasto }: ExpenseMenuProps
                                 type='button'
                                 className='block px-3 py-1 text-sm leading-6 text-red-500'
                                 onClick={() => {
-
                                     const params = new URLSearchParams()
                                     params.set('deleteExpenseId', 'true')
                                     params.set('showModal', 'true')

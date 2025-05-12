@@ -1,6 +1,6 @@
 import { ConfirmarCuenta } from '@/components/auth/ConfirmarCuenta'
 import { Metadata } from 'next'
-import React, { useState } from 'react'
+import React from 'react'
 
 export const metadata: Metadata = {
     title:"Cashtrackr - Confirmar Cuenta",

@@ -1,10 +1,7 @@
 
 import type { Metadata } from "next"
-import RegisterForm from "@/components/auth/RegisterForm"
 import LoginForm from "@/components/auth/LoginForm"
 import Link from "next/link"
-import { login } from "@/actions/login-acount"
-import { useFormState } from "react-dom"
 
 export const metadata: Metadata = {
     title:"Cashtrackr - Iniciar Sesión",

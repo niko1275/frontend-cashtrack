@@ -75,7 +75,7 @@ export default async function Page({params}:{params:{id:string}}) {
                 </div>
 
            
-                <ExpenseMenu IdGasto={Number(expense.id)} IdPresupuesto={Number(budget.id)} />
+                <ExpenseMenu IdGasto={Number(expense.id)}/>
                 </li>
             ))}
             </ul>

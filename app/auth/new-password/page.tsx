@@ -1,7 +1,6 @@
 "use client"
 import PasswordResetHandler from '@/components/auth/PasswordResetHandler'
-import ResetPasswordForm from '@/components/auth/RessetPassword'
-import ValidateTokenForm from '@/components/auth/ValidateTokenForm'
+
 import React from 'react'
 
 export default function page() {

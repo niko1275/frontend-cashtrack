@@ -16,10 +16,10 @@ export default function ForgotPasswordForm() {
             action={dispatch}
         >
             {
-                state.errors.map(e=><ErrorMessage children={e}/>)
+                state.errors.map((e,index)=><ErrorMessage key={index} >{e}</ErrorMessage>)
             }
             {
-                (state.success && <SuccessMessage children={state.success}/>)
+                (state.success && <SuccessMessage >{state.success}</SuccessMessage>)
             }
             <div className="flex flex-col gap-2 mb-10">
                 <label

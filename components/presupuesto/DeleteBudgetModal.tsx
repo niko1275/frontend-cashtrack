@@ -2,7 +2,7 @@
 
 import { Dialog, Transition, TransitionChild } from '@headlessui/react'
 import { Fragment } from 'react'
-import { useRouter } from 'next/navigation'
+
 import ConfirmPasswordForm from './ConfirmPasswordForm';
 
 interface DeleteBudgetModalProps {
@@ -12,7 +12,7 @@ interface DeleteBudgetModalProps {
 }
 
 export default function DeleteBudgetModal({ isOpen, onClose, budgetId }: DeleteBudgetModalProps) {
-    const router = useRouter()
+
 
     return (
         <Transition appear show={isOpen} as={Fragment}>
